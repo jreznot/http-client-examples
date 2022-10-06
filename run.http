@@ -27,7 +27,7 @@ GET https://httpbin.org/get
   });
 %}
 
-### Failed again: check response status is 200
+### Failed again - check response status is 200
 GET https://httpbin.org/status/404
 
 > {%
