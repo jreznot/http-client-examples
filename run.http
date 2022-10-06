@@ -5,6 +5,7 @@
 %}
 
 GET https://httpbin.org/status/200
+User-Agent: HTTP-Client
 
 > {%
   client.test("Request #1 is 200", function() {
@@ -12,12 +13,17 @@ GET https://httpbin.org/status/200
   });
 %}
 
-### Failed test: check response status is 200
-GET https://httpbin.org/status/404
+### Check response status and content-type
+GET https://httpbin.org/get
 
 > {%
-  client.test("Request #2 is 200", function() {
-    client.assert(response.status === 404, "Response status is not 200");
+  client.test("Request executed successfully", function() {
+    client.assert(response.status === 200, "Response status is not 200");
+  });
+
+  client.test("Response content-type is json", function() {
+    var type = response.contentType.mimeType;
+    client.assert(type === "application/json", "Expected 'application/json' but received '" + type + "'");
   });
 %}
 
