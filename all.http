@@ -1,4 +1,4 @@
-### Successful test: check response status is 200
+### Successful test - check response status is 200
 GET https://httpbin.org/status/200
 
 > {%
@@ -7,7 +7,7 @@ client.test("Request executed successfully", function() {
 });
 %}
 
-### Failed test: check response status is 200
+### Failed test - check response status is 200
 GET https://httpbin.org/status/404
 
 > {%
